@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nice Girl — натуральный йогурт и смузи, Алматы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #16244a;
+    --navy-deep: #0e1a38;
+    --cream: #faf5e9;
+    --cream-2: #f2ead7;
+    --berry: #e2626d;
+    --leaf: #7c9a5c;
+    --sky: #d9e7ef;
+    --ink: #1c2436;
+    --paper: #fffdf8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .label{
+    font-family:'Space Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-size:0.72rem;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- scallop / soft-serve swirl divider ---------- */
+  .scallop{
+    display:block;
+    width:100%;
+    height:46px;
+    line-height:0;
+  }
+  .scallop svg{width:100%;height:100%;}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,245,233,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(22,36,74,0.08);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:16px; padding-bottom:16px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces',serif; font-weight:700; font-size:1.15rem;
+    color:var(--navy);
+  }
+  .brand .mark{width:26px;height:26px;}
+  nav ul{display:flex; gap:30px; list-style:none;}
+  nav ul a{font-size:0.92rem; font-weight:500; color:var(--navy); position:relative;}
+  nav ul a::after{
+    content:''; position:absolute; left:0; bottom:-5px; height:2px; width:0;
+    background:var(--berry); transition:width .25s ease;
+  }
+  nav ul a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--navy); color:var(--paper); padding:9px 18px;
+    border-radius:100px; font-size:0.85rem; font-weight:600;
+  }
+  .nav-toggle{display:none;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--navy);
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,0.05), transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(226,98,109,0.18), transparent 45%);
+    color:var(--paper);
+    position:relative;
+    padding:90px 0 0 0;
+    overflow:hidden;
+  }
+  .hero-inner{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
+    padding-bottom:70px;
+  }
+  .hero .eyebrow{
+    color:var(--sky); margin-bottom:18px; display:flex; align-items:center; gap:10px;
+  }
+  .hero .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--berry);display:inline-block;}
+  .hero h1{
+    font-size:clamp(2.6rem, 5.2vw, 4.4rem);
+    line-height:1.02;
+    color:var(--paper);
+  }
+  .hero h1 em{
+    font-style:normal; color:var(--berry);
+  }
+  .hero p.sub{
+    margin-top:22px; max-width:440px; font-size:1.06rem; line-height:1.6;
+    color:rgba(250,245,233,0.82);
+  }
+  .hero .cta-row{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px; border-radius:100px; font-weight:600; font-size:0.95rem;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-primary{background:var(--berry); color:var(--paper);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(226,98,109,0.35);}
+  .btn-ghost{border:1.5px solid rgba(250,245,233,0.4); color:var(--paper);}
+  .btn-ghost:hover{border-color:var(--paper); transform:translateY(-2px);}
+  .rating-pill{
+    margin-top:36px; display:inline-flex; align-items:center; gap:14px;
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+    padding:12px 20px; border-radius:16px;
+  }
+  .rating-pill .num{font-family:'Fraunces',serif; font-size:1.7rem; color:var(--paper);}
+  .rating-pill .stars{color:#f2c14e; letter-spacing:2px; font-size:0.9rem;}
+  .rating-pill .meta{font-size:0.78rem; color:rgba(250,245,233,0.65); line-height:1.3;}
+
+  /* signature: swirl cup illustration */
+  .cup-wrap{position:relative; display:flex; justify-content:center;}
+  .cup-wrap svg{width:100%; max-width:340px; filter:drop-shadow(0 30px 40px rgba(0,0,0,0.35));}
+
+  /* ---------- marquee strip ---------- */
+  .marquee-strip{
+    background:var(--berry); color:var(--paper);
+    overflow:hidden; white-space:nowrap; padding:13px 0;
+  }
+  .marquee-track{display:inline-block; animation:scroll 26s linear infinite;}
+  .marquee-track span{
+    display:inline-block; padding:0 28px; font-family:'Space Mono',monospace;
+    font-size:0.82rem; letter-spacing:0.08em; text-transform:uppercase;
+  }
+  @keyframes scroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+  /* ---------- section generic ---------- */
+  section{padding:96px 0;}
+  .section-head{max-width:620px; margin-bottom:56px;}
+  .section-head .label{color:var(--berry); margin-bottom:14px;}
+  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem); color:var(--navy);}
+  .section-head p{margin-top:16px; color:#4a5170; line-height:1.65; font-size:1.02rem;}
+
+  /* ---------- about ---------- */
+  .about{background:var(--paper);}
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;}
+  .about-photo{position:relative; border-radius:22px; overflow:hidden;}
+  .about-photo img{width:100%; height:520px; object-fit:cover; object-position:center 30%;}
+  .about-badge{
+    position:absolute; bottom:20px; left:20px; background:var(--cream);
+    padding:14px 18px; border-radius:14px; display:flex; gap:12px; align-items:center;
+    box-shadow:0 12px 30px rgba(22,36,74,0.18);
+  }
+  .about-badge .flower{width:30px;height:30px;flex-shrink:0;}
+  .about-badge .t1{font-family:'Fraunces',serif; font-weight:600; font-size:0.95rem; color:var(--navy);}
+  .about-badge .t2{font-size:0.74rem; color:#666; margin-top:2px;}
+  .principles{list-style:none; margin-top:32px; display:flex; flex-direction:column; gap:22px;}
+  .principles li{display:flex; gap:16px; align-items:flex-start;}
+  .principles .num{
+    font-family:'Space Mono',monospace; color:var(--berry); font-size:0.8rem; padding-top:4px;
+  }
+  .principles h3{font-size:1.08rem; color:var(--navy); margin-bottom:4px;}
+  .principles p{font-size:0.92rem; color:#5a6180; line-height:1.55;}
+
+  /* ---------- menu ---------- */
+  .menu{background:var(--sky); position:relative;}
+  .menu-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  .menu-card{
+    background:var(--paper); border-radius:20px; padding:30px 24px;
+    display:flex; flex-direction:column; gap:14px;
+    transition:transform .25s ease, box-shadow .25s ease;
+    border:1px solid rgba(22,36,74,0.06);
+  }
+  .menu-card:hover{transform:translateY(-6px); box-shadow:0 18px 34px rgba(22,36,74,0.14);}
+  .menu-card .icon{width:44px;height:44px;}
+  .menu-card h3{font-size:1.15rem; color:var(--navy);}
+  .menu-card p{font-size:0.88rem; color:#5a6180; line-height:1.55; flex-grow:1;}
+  .menu-card .tag{
+    align-self:flex-start; font-family:'Space Mono',monospace; font-size:0.68rem;
+    text-transform:uppercase; letter-spacing:0.08em; color:var(--leaf);
+    background:rgba(124,154,92,0.12); padding:5px 10px; border-radius:100px;
+  }
+
+  /* ---------- gallery ---------- */
+  .gallery{background:var(--navy); color:var(--paper);}
+  .gallery .section-head h2{color:var(--paper);}
+  .gallery .section-head p{color:rgba(250,245,233,0.68);}
+  .gallery .section-head .label{color:#f2c14e;}
+  .gallery-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:20px;}
+  .gallery-grid img{width:100%; height:100%; object-fit:cover; border-radius:18px;}
+  .gallery-grid .g-left{height:460px;}
+  .gallery-grid .g-right{display:flex; flex-direction:column; gap:20px;}
+  .gallery-grid .g-right > div{height:220px; border-radius:18px; overflow:hidden;}
+  .quote-card{
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+    border-radius:18px; padding:22px; display:flex; flex-direction:column; justify-content:center; height:220px !important;
+  }
+  .quote-card p{font-family:'Fraunces',serif; font-style:italic; font-size:1.1rem; line-height:1.4;}
+  .quote-card span{margin-top:12px; font-size:0.78rem; color:rgba(250,245,233,0.6);}
+
+  /* ---------- reviews ---------- */
+  .reviews{background:var(--cream-2);}
+  .reviews-scroller{
+    display:flex; gap:20px; overflow-x:auto; padding-bottom:20px;
+    scroll-snap-type:x mandatory;
+  }
+  .reviews-scroller::-webkit-scrollbar{height:6px;}
+  .reviews-scroller::-webkit-scrollbar-thumb{background:rgba(22,36,74,0.2); border-radius:10px;}
+  .review-card{
+    scroll-snap-align:start;
+    background:var(--paper); border-radius:18px; padding:26px;
+    min-width:300px; max-width:300px; flex-shrink:0;
+    display:flex; flex-direction:column; gap:14px;
+    border:1px solid rgba(22,36,74,0.06);
+  }
+  .review-card .stars{color:#f2c14e; font-size:0.9rem; letter-spacing:2px;}
+  .review-card p{font-size:0.9rem; line-height:1.6; color:#333a52; flex-grow:1;}
+  .review-card .who{display:flex; align-items:center; gap:10px;}
+  .avatar{
+    width:36px; height:36px; border-radius:50%; background:var(--navy); color:var(--paper);
+    display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:0.85rem;
+    flex-shrink:0;
+  }
+  .who .name{font-size:0.85rem; font-weight:600; color:var(--navy);}
+  .who .meta{font-size:0.72rem; color:#8a8fa3;}
+  .stat-row{display:flex; gap:48px; margin-top:50px; flex-wrap:wrap;}
+  .stat-row .stat b{font-family:'Fraunces',serif; font-size:2.2rem; color:var(--navy); display:block;}
+  .stat-row .stat span{font-size:0.82rem; color:#5a6180;}
+
+  /* ---------- location ---------- */
+  .location{background:var(--paper);}
+  .location-grid{display:grid; grid-template-columns:1fr 1fr; gap:0; border-radius:24px; overflow:hidden; box-shadow:0 20px 50px rgba(22,36,74,0.12);}
+  .location-info{background:var(--navy); color:var(--paper); padding:56px 48px; display:flex; flex-direction:column; justify-content:center;}
+  .location-info h2{color:var(--paper); font-size:2rem; margin-bottom:22px;}
+  .info-line{display:flex; gap:14px; margin-bottom:20px; align-items:flex-start;}
+  .info-line svg{width:20px;height:20px; flex-shrink:0; margin-top:2px; color:var(--berry);}
+  .info-line .t1{font-weight:600; font-size:0.98rem;}
+  .info-line .t2{font-size:0.84rem; color:rgba(250,245,233,0.6); margin-top:2px;}
+  .location-map{position:relative; min-height:420px; background:var(--sky);}
+  .location-map iframe{width:100%; height:100%; border:0; position:absolute; inset:0;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--navy-deep); color:rgba(250,245,233,0.65); padding:60px 0 30px;}
+  .footer-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:40px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.08);}
+  .footer-brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; color:var(--paper); font-size:1.2rem; font-weight:700;}
+  .footer-links{display:flex; gap:60px; flex-wrap:wrap;}
+  .footer-col h4{font-family:'Space Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(250,245,233,0.4); margin-bottom:14px;}
+  .footer-col a{display:block; font-size:0.9rem; margin-bottom:10px; color:rgba(250,245,233,0.75);}
+  .footer-col a:hover{color:var(--paper);}
+  .footer-bottom{padding-top:24px; display:flex; justify-content:space-between; font-size:0.78rem; flex-wrap:wrap; gap:10px;}
+
+  /* ---------- reveal animation ---------- */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr; text-align:left;}
+    .about-grid{grid-template-columns:1fr;}
+    .about-photo img{height:340px;}
+    .menu-grid{grid-template-columns:1fr 1fr;}
+    .gallery-grid{grid-template-columns:1fr;}
+    .gallery-grid .g-left{height:280px;}
+    .location-grid{grid-template-columns:1fr;}
+    nav ul{display:none;}
+  }
+  @media (max-width:560px){
+    .menu-grid{grid-template-columns:1fr;}
+    .gallery-grid .g-right{flex-direction:column;}
+    section{padding:64px 0;}
+    .footer-links{gap:30px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="brand">
+      <svg class="mark" viewBox="0 0 40 40" fill="none"><path d="M20 2C21 8 24 11 30 12C24 13 21 16 20 22C19 16 16 13 10 12C16 11 19 8 20 2Z" fill="#16244a"/><path d="M20 22C21 26 23 28 27 29C23 30 21 32 20 36C19 32 17 30 13 29C17 28 19 26 20 22Z" fill="#16244a"/></svg>
+      Nice Girl
+    </a>
+    <ul>
+      <li><a href="#about">О нас</a></li>
+      <li><a href="#menu">Меню</a></li>
+      <li><a href="#gallery">Кафе</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#location">Адрес</a></li>
+    </ul>
+    <a href="#location" class="nav-cta">Как добраться</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow label"><span class="dot"></span>Aport Mall East · Алматы</div>
+      <h1>Натуральный йогурт,<br>без капли <em>лишнего.</em></h1>
+      <p class="sub">Свежие фрукты, живые смузи и мягкий фруктовый йогурт без добавленного сахара. Halal. Каждая порция собирается у вас на глазах.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#menu">Смотреть меню</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/nicegirlkz" target="_blank" rel="noopener">Instagram ↗</a>
+      </div>
+      <div class="rating-pill">
+        <div class="num">4.9</div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <div class="meta">121 оценка · 90 отзывов на 2ГИС</div>
+        </div>
+      </div>
+    </div>
+    <div class="cup-wrap">
+      <svg viewBox="0 0 300 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 130 L60 340 Q60 360 90 360 L210 360 Q240 360 240 340 L260 130 Z" fill="#faf5e9"/>
+        <path d="M40 130 L60 340 Q60 360 90 360 L210 360 Q240 360 240 340 L260 130 Z" stroke="#16244a" stroke-opacity="0.06" stroke-width="2"/>
+        <path d="M150 40 C170 60 190 60 205 45 C200 70 205 90 225 100 C200 105 185 120 180 145 C165 120 150 110 125 108 C145 95 150 75 145 55 C150 50 148 44 150 40Z" fill="#fffdf8"/>
+        <path d="M150 40 C130 60 110 60 95 45 C100 70 95 90 75 100 C100 105 115 120 120 145 C135 120 150 110 175 108 C155 95 150 75 155 55 C150 50 152 44 150 40Z" fill="#f2f8fb"/>
+        <circle cx="110" cy="150" r="10" fill="#e2626d"/>
+        <circle cx="150" cy="135" r="8" fill="#f2c14e"/>
+        <circle cx="185" cy="155" r="9" fill="#7c9a5c"/>
+        <circle cx="135" cy="165" r="6" fill="#e2626d"/>
+        <circle cx="165" cy="120" r="6" fill="#7c9a5c"/>
+        <path d="M40 130 L260 130 L250 165 Q150 185 50 165 Z" fill="#d9e7ef" fill-opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+  <div class="scallop">
+    <svg viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M0 24 Q10 0 20 24 T40 24 T60 24 T80 24 T100 24 T120 24 T140 24 T160 24 T180 24 T200 24 T220 24 T240 24 T260 24 T280 24 T300 24 T320 24 T340 24 T360 24 T380 24 T400 24 V24 H0 Z" fill="#faf5e9"/></svg>
+  </div>
+</section>
+
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span>BE NATURAL · BE BETTER</span><span>HALAL</span><span>БЕЗ ДОБАВЛЕННОГО САХАРА</span><span>СВЕЖИЕ ФРУКТЫ КАЖДЫЙ ДЕНЬ</span>
+    <span>BE NATURAL · BE BETTER</span><span>HALAL</span><span>БЕЗ ДОБАВЛЕННОГО САХАРА</span><span>СВЕЖИЕ ФРУКТЫ КАЖДЫЙ ДЕНЬ</span>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="about-photo">
+        <img src="assets/interior-2.png" alt="Интерьер и меню Nice Girl">
+        <div class="about-badge">
+          <svg class="flower" viewBox="0 0 40 40" fill="none"><path d="M20 2C21 8 24 11 30 12C24 13 21 16 20 22C19 16 16 13 10 12C16 11 19 8 20 2Z" fill="#16244a"/><path d="M20 22C21 26 23 28 27 29C23 30 21 32 20 36C19 32 17 30 13 29C17 28 19 26 20 22Z" fill="#16244a"/></svg>
+          <div>
+            <div class="t1">Nice Girl</div>
+            <div class="t2">Yogurt Fruit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="label" style="color:var(--berry); margin-bottom:14px;">О нас</div>
+      <h2 style="font-size:clamp(1.9rem,3.4vw,2.5rem); color:var(--navy);">Философия одной фразы: be natural, be better</h2>
+      <p style="margin-top:16px; color:#4a5170; line-height:1.65;">Мы делаем йогурт и смузи из настоящих ингредиентов — без искусственных добавок и лишнего сахара. Гости отмечают деликатную текстуру йогурта, щедрые порции и приветливую команду, которая помогает собрать вкус под себя.</p>
+      <ul class="principles">
+        <li>
+          <span class="num">01</span>
+          <div><h3>Натуральный состав</h3><p>Йогурт и смузи готовятся из свежих фруктов и ягод, без искусственных добавок.</p></div>
+        </li>
+        <li>
+          <span class="num">02</span>
+          <div><h3>Halal</h3><p>Все продукты соответствуют стандартам halal.</p></div>
+        </li>
+        <li>
+          <span class="num">03</span>
+          <div><h3>Свой топпинг-бар</h3><p>Фрукты, ягоды, орехи, шоколад, печенье и сиропы — соберите свою порцию сами.</p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">Меню</div>
+      <h2>Что попробовать в первый визит</h2>
+      <p>Гости чаще всего берут мягкий фруктовый йогурт, смузи со спирулиной и авокадо-манго — но выбор топпингов всегда за вами.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <svg class="icon" viewBox="0 0 44 44" fill="none"><path d="M10 16 L12 36 Q12 40 18 40 L26 40 Q32 40 32 36 L34 16 Z" stroke="#16244a" stroke-width="2"/><path d="M22 4 C26 8 30 8 33 5 C31 12 33 16 38 18 C31 19 27 24 26 30 C22 24 18 21 12 20 C18 17 22 12 22 4Z" fill="#e2626d" fill-opacity="0.15" stroke="#e2626d" stroke-width="2"/></svg>
+        <h3>Frozen yogurt</h3>
+        <p>Мягкий замороженный йогурт с выбором из свежих фруктов, ягод, орехов и сиропов.</p>
+        <span class="tag">Хит</span>
+      </div>
+      <div class="menu-card reveal">
+        <svg class="icon" viewBox="0 0 44 44" fill="none"><rect x="14" y="8" width="16" height="30" rx="4" stroke="#16244a" stroke-width="2"/><path d="M14 18 H30" stroke="#16244a" stroke-width="2"/><circle cx="22" cy="26" r="3" fill="#7c9a5c"/></svg>
+        <h3>Йогурт в стаканчике</h3>
+        <p>Слоями: йогурт, фрукты, топпинг. Маленький или большой формат.</p>
+        <span class="tag">С фруктами</span>
+      </div>
+      <div class="menu-card reveal">
+        <svg class="icon" viewBox="0 0 44 44" fill="none"><path d="M16 6 L28 6 L26 20 L30 40 L14 40 L18 20 Z" stroke="#16244a" stroke-width="2"/><path d="M18 20 H26" stroke="#e2626d" stroke-width="2"/></svg>
+        <h3>Смузи</h3>
+        <p>Авокадо-манго, ягодные и зелёные смузи, в том числе со спирулиной.</p>
+        <span class="tag">Без сахара</span>
+      </div>
+      <div class="menu-card reveal">
+        <svg class="icon" viewBox="0 0 44 44" fill="none"><path d="M10 16 H30 V30 Q30 36 20 36 Q10 36 10 30 Z" stroke="#16244a" stroke-width="2"/><path d="M30 18 Q38 18 38 24 Q38 30 30 28" stroke="#16244a" stroke-width="2"/></svg>
+        <h3>Чай и латте</h3>
+        <p>Фруктовый чай со льдом и чайные латте — на любой сезон.</p>
+        <span class="tag">Напитки</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">Кафе</div>
+      <h2>Внутри Nice Girl</h2>
+      <p>Светлое пространство в Aport Mall East, экран с меню и топпинг-бар на виду — видно, из чего собирают вашу порцию.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-left reveal"><img src="assets/interior-1.png" alt="Полки Nice Girl с упаковкой"></div>
+      <div class="g-right">
+        <div class="reveal"><img src="assets/interior-2.png" alt="Вывеска и меню Nice Girl" style="height:100%;"></div>
+        <div class="quote-card reveal">
+          <p>«Йогурт нежный, десерты лёгкие, атмосфера уютная»</p>
+          <span>— Бота Б., отзыв на 2ГИС</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">Отзывы</div>
+      <h2>Что говорят гости</h2>
+      <p>90 отзывов на 2ГИС, средняя оценка 4.9 из 5.</p>
+    </div>
+    <div class="reviews-scroller">
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>Смузи со спирулиной хвалят отдельно — говорят, один из лучших вкусов в меню.</p>
+        <div class="who"><div class="avatar">A</div><div><div class="name">Ari Na</div><div class="meta">9 отзывов</div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>Большой выбор смузи и напитков без сахара, персонал приветливый и отзывчивый.</p>
+        <div class="who"><div class="avatar">А</div><div><div class="name">Айгуль Айика</div><div class="meta">50 отзывов</div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>Всё свежее и вкусное, действительно без лишнего сахара, чай хорошо дополняет заказ.</p>
+        <div class="who"><div class="avatar">Б</div><div><div class="name">Бота Б.</div><div class="meta">18 отзывов</div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>Отдельно отмечают сотрудницу Дану — вежливую и внимательную, помогает с выбором.</p>
+        <div class="who"><div class="avatar">Ж</div><div><div class="name">Zhanerke S.</div><div class="meta">1 отзыв</div></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>Натуральный состав и приятная цена — гости пишут, что обязательно вернутся снова.</p>
+        <div class="who"><div class="avatar">A</div><div><div class="name">Aisha</div><div class="meta">3 отзыва</div></div></div>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><b>4.9</b><span>средняя оценка</span></div>
+      <div class="stat"><b>121</b><span>оценок на 2ГИС</span></div>
+      <div class="stat"><b>90</b><span>отзывов</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="location">
+  <div class="wrap">
+    <div class="location-grid">
+      <div class="location-info reveal">
+        <h2>Приходите в гости</h2>
+        <div class="info-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <div><div class="t1">ТРЦ Aport Mall East</div><div class="t2">Кульджинский тракт, 106, Алматы</div></div>
+        </div>
+        <div class="info-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <div><div class="t1">Часы работы</div><div class="t2">Уточняйте актуальный график в Instagram или на 2ГИС</div></div>
+        </div>
+        <div class="info-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 8l9 6 9-6"/></svg>
+          <div><div class="t1">Оплата</div><div class="t2">Картой, наличными, по QR-коду</div></div>
+        </div>
+        <div class="cta-row" style="margin-top:12px;">
+          <a class="btn btn-primary" href="https://2gis.kz/almaty/firm/70000001114695997/tab/info?m=77.024641%2C43.316738%2F17.42" target="_blank" rel="noopener">Открыть на 2ГИС</a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/nicegirlkz" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="location-map reveal">
+        <iframe src="https://widgets.2gis.com/widget?type=firmsonmap&options=%7B%22pos%22%3A%7B%22lat%22%3A43.314888%2C%22lon%22%3A77.025078%2C%22zoom%22%3A16%7D%2C%22opt%22%3A%7B%22city%22%3A%22almaty%22%7D%2C%22org%22%3A%2270000001114695997%22%7D" loading="lazy" title="Nice Girl на карте 2ГИС"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg class="mark" viewBox="0 0 40 40" width="24" height="24" fill="none"><path d="M20 2C21 8 24 11 30 12C24 13 21 16 20 22C19 16 16 13 10 12C16 11 19 8 20 2Z" fill="#faf5e9"/><path d="M20 22C21 26 23 28 27 29C23 30 21 32 20 36C19 32 17 30 13 29C17 28 19 26 20 22Z" fill="#faf5e9"/></svg>
+          Nice Girl
+        </div>
+        <p style="max-width:260px; margin-top:14px; font-size:0.88rem; line-height:1.6;">Натуральный йогурт и смузи. Halal. Aport Mall East, Алматы.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <a href="#about">О нас</a>
+          <a href="#menu">Меню</a>
+          <a href="#reviews">Отзывы</a>
+          <a href="#location">Адрес</a>
+        </div>
+        <div class="footer-col">
+          <h4>Мы онлайн</h4>
+          <a href="https://www.instagram.com/nicegirlkz" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://2gis.kz/almaty/firm/70000001114695997/tab/info?m=77.024641%2C43.316738%2F17.42" target="_blank" rel="noopener">2ГИС</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Nice Girl, Алматы</span>
+      <span>Сайт создан на основе открытых данных 2ГИС и Instagram</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
