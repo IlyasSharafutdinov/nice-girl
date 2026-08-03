@@ -69,15 +69,6 @@
   .card .cap .kk{font-family:'Space Mono',monospace; font-size:0.66rem; text-transform:uppercase; letter-spacing:0.08em; color:#f2c14e;}
   .card .cap h3{font-family:'Fraunces',serif; font-size:1.05rem; margin-top:4px;}
 
-  /* placeholder card for items you haven't photographed yet */
-  .card.placeholder{
-    display:flex; align-items:center; justify-content:center; flex-direction:column; gap:10px;
-    border:2px dashed rgba(22,36,74,0.25); background:var(--paper); cursor:default;
-  }
-  .card.placeholder svg{width:34px; height:34px; color:rgba(22,36,74,0.35);}
-  .card.placeholder span{font-size:0.82rem; color:#8a8fa3; text-align:center; padding:0 20px;}
-  .card.placeholder:hover{transform:none; box-shadow:none;}
-
   @media (max-width:900px){ .grid{grid-template-columns:repeat(2, 1fr);} }
   @media (max-width:560px){ .grid{grid-template-columns:1fr;} }
 
@@ -163,14 +154,6 @@
       <div class="card" data-full="IMG_8102.jpeg">
         <img src="IMG_8102.jpeg" alt="Фруктовые чаи — меню с ценами">
         <div class="cap"><div class="kk">Жеміс шайлары</div><h3>Фруктовые чаи</h3></div>
-      </div>
-
-           <!-- Пустое место под новую позицию меню. Чтобы добавить фото:
-           1) положи файл в assets/menu/, например desserts.jpg
-           2) замени этот блок на card с data-full и src на твой файл -->
-      <div class="card placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5-9 9"/></svg>
-        <span>Место под ещё одно фото меню —<br>добавь файл в assets/menu/</span>
       </div>
     </div>
   </div>
